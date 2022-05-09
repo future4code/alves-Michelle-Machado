@@ -48,7 +48,12 @@ console.log(typeof nome, typeof idade)
 
 // Foi impresso que ambas são do tipo String, pois seu valor passou a ser o texto
 
-console.log ("Ola ", nome, " você tem ", idade, " anos" )
+console.log ("Ola " + nome + " você tem " + idade + " anos")
+console.log(`Ola ${nome} voce tem ${idade} anos`)
+
+console.log ("5" + "5") = 55
+
+
 
 // Os valores de nome e idade foram escrito no prompt, pelo usuario.
 
@@ -78,9 +83,12 @@ console.log("O novo valor de b é", b)
 
 // DESAFIO
 
-let numeroUsario1 = 5
-let numeroUsuario2 = 8
+let numeroUsario1 = prompt ("Escreva o numero 1")
+let numeroUsuario2 = prompt ("Escreva o numero 2")
 
-console.log("1. O primeiro número somado ao segundo número resulta em: ", numeroUsario1 + numeroUsuario2)
-console.log("2. O primeiro número multiplicado pelo segundo número resulta em: ", numeroUsario1 * numeroUsuario2)
+let soma = parseInt(numeroUsario1) + parseInt(numeroUsuario2)
+let multi= parseInt(numeroUsario1) * parseInt(numeroUsuario2)
+
+console.log("1. O primeiro número somado ao segundo número resulta em: ", soma)
+console.log("2. O primeiro número multiplicado pelo segundo número resulta em: ", multi)
 
