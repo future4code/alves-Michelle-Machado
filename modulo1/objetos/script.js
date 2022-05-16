@@ -161,7 +161,7 @@ console.log(carrinho)
 // no console um objeto com essas propriedades. Depois de imprimir o novo objeto, imprima também o 
 // tipo dele para garantir que é um objeto.
 
-function user (objUser){
+function user1 (objUser){
 
     objUser = {
 
@@ -174,7 +174,7 @@ function user (objUser){
     console.log(objUser, typeof objUser)
 }
 
-user()
+user1()
 
 
 // 2. Crie uma função que receba dois objetos que representam filmes. Eles devem ter as propriedades: 
