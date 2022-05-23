@@ -12,8 +12,6 @@
  * 
  */
 
-   // PARTE1 
-
     console.log("Boas vindas ao jogo de Blackjack!")
 
     if(confirm("Quer iniciar uma nova jogada?")) {
@@ -22,11 +20,21 @@
       let cartaComputador1 = comprarCarta()
       let cartaComputador2 = comprarCarta()
 
-      let score = Number(cartaUser1.texto.replace(naipe,"")) + Number(cartaUser2.texto.replace(naipe,""))
+      let scoreUser = Number(cartaUser1.valor) + Number(cartaUser2.valor)
+      let scoreComp = Number(cartaComputador1.valor) + Number(cartaComputador2.valor)
 
-      console.log(`Usuario - cartas: ${cartaUser1.texto} ${cartaUser2.texto} - pontuação ${score}`)
-      console.log(`Computador - cartas: ${cartaComputador1.texto} ${cartaComputador2.texto} - pontuação ${cartaComputador1.texto + cartaComputador2.texto}`)
+      console.log(`Usuario - cartas: ${cartaUser1.texto} ${cartaUser2.texto} - pontuação ${scoreUser}`)
+      console.log(`Computador - cartas: ${cartaComputador1.texto} ${cartaComputador2.texto} - pontuação ${scoreComp}`)
       
+        if(scoreUser === scoreComp){
+          console.log(`Empate!`)
+        }
+        else if (scoreUser > scoreComp){
+          console.log("O usuário ganhou!")
+        }
+        else {
+          console.log("O computador ganhou!")
+        }
       
     }else{
       console.log("O jogo acabou")
