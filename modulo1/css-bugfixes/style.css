@@ -66,8 +66,14 @@ div>p:first-child {
 
 .icone {
     height: 2.5vh;
-    width: 2vw;
+    width: 1.6vw;
 }
+
+.icone:hover{
+    opacity: 0.6;
+}
+
+
 
 
 /** 
