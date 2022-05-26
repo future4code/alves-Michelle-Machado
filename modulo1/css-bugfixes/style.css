@@ -65,7 +65,8 @@ div>p:first-child {
 }
 
 .icone {
-    height: 15px;
+    height: 2.5vh;
+    width: 2vw;
 }
 
 
@@ -97,7 +98,6 @@ div>p:first-child {
     padding: 100px 0;
     font-size: 60px;
 }
-
 
 /**
   *
@@ -145,13 +145,14 @@ td img{
 
 
 #back-button {
+    margin-top: 10vh;
     background-color: white;
     width: 100px;
     height: 20px;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     border-radius: 5px;
     font-size: 10px;
-    /* color: black; */
+    color: black;
 }
 
 #back-button:hover {
