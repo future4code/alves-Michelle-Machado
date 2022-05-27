@@ -1,0 +1,166 @@
+/** 
+  *
+  *  ESTILOS GERAIS 
+  *
+  **/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Roboto';
+ }
+
+h2 {
+    background-color: #fe7e02;
+    padding: 10px 5px 10px 5px;
+    color: white;
+    text-align: center;
+}
+
+input {
+    height: 20px;
+    width: 500px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-width: 3px;
+}
+
+
+button:focus {
+    color: white;
+}
+
+img {
+    width: 100px;
+}
+
+div>p:first-child {
+    display: inline;
+}
+
+/* div img {
+    background: black;
+} */
+
+.botao-amarelo {
+    background-color: #ffaf43;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+}
+
+.botao-amarelo:hover {
+    background-color: #c44f00;
+}
+
+.container {
+    height: 500px;
+    text-align: center;
+}
+
+.icone {
+    height: 2.5vh;
+    width: 1.6vw;
+}
+
+.icone:hover{
+    opacity: 0.6;
+}
+
+
+
+
+/** 
+  *
+  *  ESTILOS HOME 
+  *
+  **/
+
+#container-de-descricao {
+    padding-top: 15vh;
+    background-color: #2274a5;
+    color: white;
+}
+
+
+#container-de-descricao>ol {
+    padding: 15px 0px;
+}
+
+
+#container-para-comprar {
+    background-color: #e7eb90;
+}
+
+#container-para-comprar>p {
+    display: block;
+    color: #c44f00;
+    padding: 100px 0;
+    font-size: 60px;
+}
+
+/**
+  *
+  *  ESTILOS COMPRAR 
+  *
+  **/
+
+div:nth-child(2),
+div:last-child {
+    text-align: center;
+}
+
+table {
+    margin: auto;
+    width: 60%;
+    text-align: center;
+
+}
+
+
+td button {
+    background-color: #fadf63;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    color: black;
+}
+
+td button:hover {
+    background-color: #b69d2f
+}
+
+td button:active{
+    color:  white;
+}
+
+td img{
+    width: 5vw;
+}
+
+.container-do-search {
+    margin-top: 20px;
+    height: 100px;
+}
+
+
+#back-button {
+    margin-top: 10vh;
+    background-color: white;
+    width: 100px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 10px;
+    color: black;
+}
+
+#back-button:hover {
+    background-color: #635a3d
+}
