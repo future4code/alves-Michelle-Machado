@@ -1,16 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/css/variaveis.css">
+    <link rel="stylesheet" href="src/css/style_home.css">
     <title>Projeto Portolio</title>
 </head>
+
+<!-- MENU DE NAVEGACAO -->
+
 <body>
 
-    ola, meu nome é Michelle
-    
+    <div class="menu-navegacao">
+
+        <div class="logo">
+            <!-- <img src="src/img/logo.svg" alt="logo"> -->
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#depositions">Depositions</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </div>
+
+    <!-- ABOUT ME -->
+
+    <a name="home"></a>
+    <div class="about-me">
+
+        <div class="name">
+            Michelle <br>
+            Machado.
+        </div>
+
+        <div class="redes-sociais">
+           <a href="https://www.linkedin.com/in/perfil-michelle-machado/"><img src="src/img/linkedin.png" alt="linkedin"></a>
+           <a href="https://github.com/MichelleMach"><img src="src/img/github.png" alt="github"></a>
+           <a href="mailto:machado.profile@gmail.com?subject='Contact for Project'"><img src="src/img/o-email.png" alt="email"></a>
+        </div>
+
+        <div class="apresentation-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, minima ullam numquam
+                hic delectus nulla officia repudiandae necessitatibus beatae porro aliquid, facilis amet
+                nobis facere magnam dolore, corporis officiis odit.
+            </p>
+
+           <a href="mystory.html"><button>
+                my story
+            </button></a>
+        </div>
+
+    </div>
+
+    <!-- PROJETOS -->
+
+    <a name="projects"></a>
+    <div class="projects">
+
+        <div class="text-project">
+
+            <div class="text-contact">
+
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum doloribus,
+                    incidunt veritatis mollitia est ullam quis dicta at quia amet dolores quod tenetur,
+                    laborum impedit odio maxime, neque voluptatem corrupti?
+                </p>
+
+            </div>
+
+            <div class="text-profissional">
+
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis vero animi error
+                    aut repudiandae, corrupti obcaecati ipsa, reprehenderit nihil quo facilis quae veniam
+                    maxime consectetur qui possimus similique! Error, cum!
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="container-cards">
+
+            <a href="https://michellemach.github.io/jogo_da_velha/">
+
+                <div class="card velha">
+                    <img src="src/img/marca-x.png" alt="project1">
+
+                    <div class="text-card" hidden>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    </div>
+                </div>
+
+            </a>
+
+            <a href="https://materialistic-line.surge.sh/index.html">
+
+                <div class="card persona">
+                    <img src="src/img/design-de-personagem.png" alt="project2">
+
+                    <div class="text-card" hidden>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    </div>
+                </div>
+
+            </a>
+
+            <a href="https://probable-hammer.surge.sh/index.html">
+
+                <div class="card loja">
+                    <img src="src/img/loja.png" alt="project3">
+
+                    <div class="text-card" hidden>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    </div>
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- DEPOIMENTOS -->
+
+    <a name="#depositions"></a>
+
+    <div class="depositions">
+
+        <div class="foto-persona">
+            <img src="src/img/pexels-harsh-kushwaha-2927773.jpg" alt="foto-persona">
+        </div>
+
+        <div class="icon">
+            <img src="src/img/aspas-duplas.png" alt="aspas-duplas">
+        </div>
+
+        <div class="text-depositions">
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Accusamus, ut quia! Corrupti sit, eum rem nulla, nam debitis quis nobis at
+                accusantium officiis maxime alias recusandae sint ab consequuntur accusamus?
+            </p>
+
+            <p class="nome-deposition">
+                Rodrigo Lombardi
+            </p>
+
+            <p class="cargo-deposition">
+                Designer Senior and Front-End Developer
+            </p>
+        </div>
+    </div>
+
+    <!-- FORMULARIO DE CONTATO -->
+
+    <a name="contact"></a>
+    <div class="contact">
+
+        <div class="text-contact-form">
+            <p>Do you need some help in your project? Let's talk!</p><br> 
+            
+            <p class="small-font">Contact me for email or in my social medias</p>
+
+            <!-- <div class="redes-sociais">
+                <a href="https://www.linkedin.com/in/perfil-michelle-machado/"><img class="form" src="src/img/linkedin.png" alt="linkedin"></a>
+                <a href="https://github.com/MichelleMach"><img class="form" src="src/img/github.png" alt="github"></a>
+                <a href="mailto:machado.profile@gmail.com?subject='Contact for Project'"><img class="form" src="src/img/o-email.png" alt="email"></a>
+             </div> -->
+             
+        </div>
+
+        <form action="">
+
+            <p>What's your name?</p><label for=""><input type="text" name="nome"></label>
+
+            <p>What's your email?</p><label for=""><input type="text" name="email"></label>
+
+            <p>Type a message </p><label for=""><input type="textarea" name="mensagem" id="text-area"></label>
+
+            <button type="submit">Enviar</button>
+
+        </form>
+
+    </div>
 </body>
+
 </html>
