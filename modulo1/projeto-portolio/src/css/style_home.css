@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* PROBLEMA: TENTAI FAZER UM SCROLL COM CSS PURO POREM NÃO ADIANTOU, 
+PRECISO PESQUISAR COM JQUERY */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: small;
+}
+
+/* MENU DE NAVEGAÇÃO */
+
+.menu-navegacao {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--second-dark-color);
+}
+
+.logo {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+nav {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 3vw;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px;
+    border-color: var(--primary-color);
+}
+
+/* HOME */
+
+.about-me {
+    background-image: url(../img/michelle1.jpg);
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+}
+
+.name {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 7vw;
+    font-weight: bolder;
+    line-height: 80px;
+    padding-top: 30vh;
+    padding-left: 8vh;
+    color: var(--primary-color);
+}
+
+.redes-sociais{
+    position: absolute;
+    top: 60vh;
+    left: 8vh;
+}
+
+.redes-sociais img{
+    width: 3vw;
+    margin-top: 2vh;
+    margin-right: 1.3vw;
+}
+
+.apresentation-text {
+    padding-top: 35vh;
+    padding-right: 8vh;
+    width: 30vw;
+    color: var(--first-dark-color);
+    line-height: 20px;
+}
+
+.apresentation-text button {
+    width: 10vw;
+    height: 5vh;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--second-dark-color);
+    color: white;
+
+    position: relative;
+    top: 5vh;
+    left: 16vh;
+
+}
+
+.apresentation-text button:hover {
+    background-color: var(--primary-color);
+    color: var(--second-dark-color);
+    transform: scale(1.07);
+    transition: all 0.2s;
+}
+
+/* PROJECTS */
+
+.projects {
+    background-color: var(--first-dark-color);
+    width: 100%;
+    height: 100vh;
+
+}
+
+.text-project {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.text-contact {
+    color: white;
+    width: 26vw;
+    font-size: small;
+    padding-top: 10vw;
+    padding-left: 13vw;
+    padding-bottom: 5vw;
+}
+
+.text-profissional {
+    color: white;
+    width: 36vw;
+    font-size: large;
+    padding-top: 9vw;
+    padding-right: 9vw;
+}
+
+.container-cards {
+    /* background-color: white; */
+    width: 80vw;
+    height: 70vh;
+    margin: auto;
+}
+
+.card {
+
+    display: inline-block;
+    width: 30vh;
+    height: 45vh;
+    margin: 5vw;
+    border-radius: 30px;
+    background-color: var(--second-dark-color);
+
+}
+
+.velha:hover , .persona:hover, .loja:hover {
+
+    transform: scale(1.07);
+    transition: all 0.2s;
+    background-color: var(--primary-color-auxiliar);
+}
+
+.card img {
+    position: relative;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 9vw;
+}
+
+.text-card{
+    color: white;
+    font-size: small;
+    position: relative;
+    top: 40px;
+}
+
+
+/* DEPOSITIONS */
+
+
+/*SUGESTÃO: COLOCAR OS DEPOIMENTOS EM FORMATO DE SLIDER */
+
+.depositions{
+    background-image: linear-gradient(var(--first-dark-color), var(--primary-color));
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.foto-persona img{
+    width: 20vw;
+    position: relative;
+    top: 15vw;
+    left: 15vw;
+}
+
+.icon img{
+    transform: rotate(180deg);
+    position: relative;
+    width:5vw;
+    top: 15vw;
+    
+}
+
+.text-depositions p{
+    position: relative;
+    font-size: large;
+    width: 32vw;
+    top: 18vw;
+    right: 19vw;
+}
+
+.nome-deposition{
+    font-weight:bold;
+    margin-top: 24px;
+}
+
+.cargo-deposition{
+    font-weight:lighter;
+    
+}
+
+/* FORMULARIO DE CONTATO */
+
+.contact{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--second-dark-color);
+}
+
+.text-contact-form{
+    margin: 15vw;
+    font-size:xx-large;
+    font-weight:bolder;
+    color: white;
+}
+
+
+form{
+    
+    margin: 20vh 20vh 10vh 20vh ;
+    color: white;
+}
+
+form p {
+    font-weight: bold;
+    padding-bottom: 2vh;
+}
+
+.small-font{
+    font-size:x-large ;
+    font-weight:lighter
+}
+
+label input {
+
+    display: block;
+    width: 26vw;
+    height: 5vh;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-color: var(--primary-color) ;
+    margin-bottom: 5vh;
+    
+    background-color: transparent;
+    
+}
+
+/* PROBLEMA: O TEXT AREA NÃO DEVERIA ESTAR COM ESSA LINHA COMO CAIXA DE TEXTO, 
+POREM PARECE QUE A CLASS TEXT-AREA NÃO ESTA LENDO MEU COMANDO DE BORDER */
+
+#text-area{
+
+    width: 26vw;
+    height: 18vh;
+    border-top: 5vw;
+    border-right: 5vw;
+    border-left: 5vw;
+    border-color: var(--primary-color) ;
+    color: white;
+}
+
+button{
+
+    width: 5vw ;
+    height: 4vh;
+    border: none;
+    color: white;
+    background-color: var(--primary-color);
+}
+
+button:hover{
+    background-color: var(--primary-color-auxiliar);
+    transform: scale(1.07);
+    transition: all 0.2s;
+
+}
+

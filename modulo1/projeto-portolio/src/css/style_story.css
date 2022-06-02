@@ -1,0 +1,80 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: small;
+}
+
+/* MENU DE NAVEGAÇÃO */
+
+.menu-navegacao {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--second-dark-color);
+}
+
+.logo {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+nav {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 3vw;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px;
+    border-color: var(--primary-color);
+}
+
+/* APRESENTAÇÃO */
+
+.apresentacao{
+    background-color: var(--first-dark-color);
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+    width: 100%;
+}
+
+.foto-perfil img{
+    width: 30vw;
+    margin-top: 5vw;
+    margin-left: 5vw;
+}
+
+.text-perfil{
+    width: 50vw;
+    color: white;
+    margin-top: 20vw;
+    margin-left: 5vw;
+
+}
+
+h1{
+    color: white;
+    font-size: xxx-large;
+}
+
+.text-education{
+    width: 50vw;
+    color: white;
+    margin-top: 20vw;
+    margin-left: 5vw;
+
+}
