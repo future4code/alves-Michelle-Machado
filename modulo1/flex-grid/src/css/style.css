@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+/* MENU DE NAVEGAÇÃO */
+
+header {
+
+    background-color: var(--rosa-escuro);
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+
+    display: flex;
+    align-items: center;
+    margin-left: 2vw;
+
+}
+
+.logo img {
+
+    display: inline;
+    width: 1.5vw;
+}
+
+.logo h3 {
+
+    display: inline;
+    margin-left: 2vw;
+}
+
+header button {
+    width: 4vw;
+    height: 1.7vw;
+    align-self: center;
+    margin-right: 2vw;
+}
+
+
+/* SECTION */
+
+.espaco-filtro{
+
+    display: inline-block;
+    width: 25vw;
+    height: 100vh;
+    background-color: var(--rosa-claro);
+
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter .categoria{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+
+}
+
+.filter .nome {
+   
+    display: inline-flex;
+    align-content: center;
+}
+
+.filter h4{
+
+    margin-left: 10px;
+}
+
+
+.filter div img {
+    width: 1.5vw;
+}
+
+/* FOTOS DE BOLOS */
+
+.espaco-bolos {
+
+    display: inline;
+
+}
+
+.galeria-de-bolos {
+
+    position: absolute;
+    display: inline-flex;
+    flex-wrap: wrap;
+
+}
+
+.card-bolo {
+
+    display: flex;
+    flex-direction: column;
+    width: 14vw;
+    height: 40vh;
+    margin-left: 2vw;
+    margin-top: 2vw;
+    align-items: center;
+    box-shadow: 6px 6px 8px var(--sombra-card);
+}
+
+.card-bolo img {
+    width: 14vw;
+}
+
+.card-bolo h3 {
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+}
+
+.card-bolo p {
+    font-size: 10px;
+    text-align: center;
+}
+
+/* RODAPE */
+
+footer {
+    background-color: var(--rosa-escuro);
+    height: 6vh;
+    display: flex;
+}
+
+footer p{
+    display: flex;
+    align-self: center;
+    margin: auto;
+}
