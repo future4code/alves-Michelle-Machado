@@ -1,0 +1,34 @@
+RESPOSTAS EXERCICIO
+
+4. Dentro do JSX desse componente (a partir do return do método render, na linha 91), 
+veja o componente IconeComContador. Repare que ele é usado 2 vezes. Em cada um dos usos delas, 
+3 valores são passados: icone, onClickIcone e valorContador. 
+O que são esses valores? De onde eles vêm? Para onde eles vão?
+
+O IconeComContador é o icone de coração, simulando o botão curtir e de comentário. As curtidas imprimie 
+no console "Curtiu!" cada vez que você clica e o comentário conta quantos "comentários" você depositou no post
+(depois de clicar em enviar). 
+A propriedade icone mostra as imagens, sendo o iconeCurtida o coração e o iconeComentario a caixa de mensagem
+A propriedade onClickIcone carrega a ação da função ao clicar nos icones
+A propriedade valorContador demonstra o numero atual do contador de curtidas e comentarios
+
+5. Abra o arquivo que guarda a definição desse componente (IconeComContador). Ele também se encontra na 
+pasta components. Você consegue identificar o que esse componente representa no post que aparece no seu 
+navegador?
+
+Sim. Ele irá pegar os valor das propriedades ditas anteriormente, ou seja, ele vai pegar o valor que estiver em icone,
+onClickIcone e no valorContador e irá dimensionar o container do icone com o contador, ou seja, fazer o layout. 
+
+6. Os próximos dois passos se referem ao o checkpoint 1 -Agora, vamos olhar para o estado do componente Post. 
+Observe o estado é inicial dele. Repare que 4 propriedades são inicializadas: curtido, numeroCurtidas, comentando 
+e numeroComentarios. Tente encontrar onde essas 4 propriedades são utilizadas no código. 
+
+* O curtido é utilizado para mudar de imagem. Se a resposta de curtido for verdadeira, a imagem será o icone 
+CoraçãoPreto, se a resposta for falsa será um iconeCoraçãoBranco.Porém, como o curtido já iniciou com o valor de
+falso, o icone de curtida sempre será branco, até o que o valor seja alterado.
+
+* O numeroCurtidas é o valor utilizado ao lado do icone de curtidas e comentarios, para contar
+
+
+
+
