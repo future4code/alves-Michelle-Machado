@@ -1,6 +1,6 @@
 import React from "react"
 import axios from "axios"
-import "./style.css"
+import * as C from "./style.js"
 
 
 export default class Cadastro extends React.Component {
@@ -44,8 +44,8 @@ export default class Cadastro extends React.Component {
                 }
             )
                 .then((sucesso) => {
-                    this.setState({cadastros: sucesso.data})
-                    console.log(this.state.cadastros)
+                    this.setState({ cadastros: sucesso.data })
+                    alert("Usuario criado com sucesso")
                 })
                 .catch((erro) => {
                     alert(erro.response.data.message);
@@ -57,15 +57,23 @@ export default class Cadastro extends React.Component {
 
         return (
 
-            <div>
-                <h4>Pagina de Cadastro</h4>
-                <button onClick={this.props.changePageLista}>Trocar de tela</button>
-                <input onChange={onChangeInputNome} placeholder="Nome" />
-                <input onChange={onChangeInputEmail} placeholder="E-mail" />
+            <>
 
-                <button onClick={createUser} type="submit">Criar Usuario</button>
+            <C.Body >
 
-            </div>
+                <C.Container>
+
+                <C.Button onClick={this.props.changePageLista}>Trocar de Tela</C.Button>
+                    <C.Titulo>Página de Cadastro</C.Titulo>
+                    <C.Input onChange={onChangeInputNome} placeholder="Nome" />
+                    <C.Input onChange={onChangeInputEmail} placeholder="E-mail" />
+
+                    <C.Button onClick={createUser} type="submit">Criar Usuario</C.Button>
+                </C.Container>
+
+            </C.Body>
+
+            </>
 
         )
     }
