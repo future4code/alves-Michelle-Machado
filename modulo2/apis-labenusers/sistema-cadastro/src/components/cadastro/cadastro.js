@@ -6,7 +6,7 @@ import "./style.css"
 export default class Cadastro extends React.Component {
 
     state = {
-        cadastros:[],
+        cadastros: [],
         name: "",
         email: "",
     }
@@ -18,7 +18,7 @@ export default class Cadastro extends React.Component {
             this.setState({
                 name: event.target.value
             })
-            console.log(this.state.name)
+
         }
 
         const onChangeInputEmail = (event) => {
@@ -27,48 +27,46 @@ export default class Cadastro extends React.Component {
             })
         }
 
-        const createUser = (props) => {
+        const createUser = () => {
 
             const novoUser = {
 
                 name: this.state.name,
-                email:this.state.email
+                email: this.state.email
             }
-
-            this.state.cadastros.push(novoUser)
 
             axios.post(
                 "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", novoUser,
                 {
-                  headers: {
-                    Authorization: "michelle-machado-alves"
-                  }
+                    headers: {
+                        Authorization: "michelle-machado-alves"
+                    }
                 }
-              )
-              .then((resposta) => {
-                resposta.status === 201 && alert("Usuario Criado");
-              })
-              .catch((erro) => {
-                alert(erro.response.data.message);
-              });
-          };
+            )
+                .then((sucesso) => {
+                    this.setState({cadastros: sucesso.data})
+                    console.log(this.state.cadastros)
+                })
+                .catch((erro) => {
+                    alert(erro.response.data.message);
+                });
 
 
+        };
 
 
         return (
-            <container>
-                <div>
 
-                    
+            <div>
+                <h4>Pagina de Cadastro</h4>
+                <button onClick={this.props.changePageLista}>Trocar de tela</button>
+                <input onChange={onChangeInputNome} placeholder="Nome" />
+                <input onChange={onChangeInputEmail} placeholder="E-mail" />
 
-                    <input onChange={onChangeInputNome} placeholder="Nome" />
-                    <input onChange={onChangeInputEmail} placeholder="E-mail" />
+                <button onClick={createUser} type="submit">Criar Usuario</button>
 
-                    <button onClick={createUser} type="submit">Criar Usuario</button>
+            </div>
 
-                </div>
-            </container>
         )
     }
 }
