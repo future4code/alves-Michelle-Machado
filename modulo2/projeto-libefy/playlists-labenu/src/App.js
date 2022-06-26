@@ -6,28 +6,31 @@ import Tracks from "./pages/tracks/Tracks"
 export default class App extends React.Component {
 
   state = {
-    actualPage: "playlists"
+    actualPage: "playlists",
+    clickedTrackId: "",
+    namePlaylist:"",
   }
+
+  goToPageTracks = (id, name) => {
+    this.setState({actualPage: "tracks", clickedTrackId: id, namePlaylist:name})
+  }
+
+  goToPagePlaylist = () => {
+    this.setState({actualPage: "playlists", clickedTrackId: ""})
+  }
+
 
   selectPage = () => {
     switch (this.state.actualPage) {
       case "playlists":
-        return <Playlists changePageTracks={this.changePageTracks} />
+        return <Playlists goToPageTracks={this.goToPageTracks} />
       
       case "tracks":
-        return <Tracks changePagePlaylist={this.changePagePlaylist} />
+        return <Tracks goToPagePlaylist={this.goToPagePlaylist} id={this.state.clickedTrackId} name={this.state.namePlaylist} />
     
       default:
         return ("Erro: Página não encontrada")
     }
-  }
-
-  changePageTracks = () => {
-    this.setState({actualPage: "tracks"})
-  }
-
-  changePagePlaylist = () => {
-    this.setState({actualPage: "playlists"})
   }
 
   render() {
