@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import * as C from "./styled"
 import axios from 'axios'
+import { Header } from '../../component/Header'
+import { Button } from '@chakra-ui/react'
+import { FcLike } from 'react-icons/fc'
+import { AiOutlineClose } from 'react-icons/ai'
+import { GrPowerReset } from 'react-icons/gr'
+import {
+    AlertDialog,
+    AlertDialogBody,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogContent,
+    AlertDialogOverlay,
+} from '@chakra-ui/react'
 
+export const Perfis = (props) => {
 
-export const Perfis = () => {
-
-    const [profile, setProfile] = useState({})
-    // const ListaPerfis = require('./ListaPerfis.json')
+    const [profile, setProfile] = useState([])
 
     useEffect(() => {
         GetProfileToChoose()
@@ -14,10 +25,13 @@ export const Perfis = () => {
 
 
     const GetProfileToChoose = () => {
-        axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/michelle-machado-alves/person`)
+        axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/michelle-mach-alves/person`)
             .then((res) => {
-                // setProfile(res.data.profile)
-                console.log(res)
+                if (profile === null) {
+                    <Button onClick={() => ClearPerfis()} leftIcon={<GrPowerReset />} variant='solid' size='sm'></Button>
+                }
+                setProfile(res.data.profile)
+                console.log(profile)
 
             })
             .catch((err) => {
@@ -32,15 +46,29 @@ export const Perfis = () => {
             choice: true
         }
 
-        axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/michelle-machado-alves/choose-person`, newMatch)
+        axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/michelle-mach-alves/choose-person`, newMatch)
             .then((res) => {
-                if (res.data = { isMatch: true }) {
-                    alert("Its a Match")
+                if (res.data.isMatch === true) {
+                    alert("It´s a Match")
                     GetProfileToChoose()
                 } else {
+                    console.log("Não deu Match")
                     GetProfileToChoose()
                 }
-                console.log(res.data)
+
+
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
+    const ClearPerfis = () => {
+        axios.put(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/michelle-mach-alves/clear`)
+            .then((res) => {
+                GetProfileToChoose(res)
+                console.log(res)
             })
             .catch((err) => {
                 console.log(err)
@@ -50,27 +78,41 @@ export const Perfis = () => {
     return (
 
         <C.Body>
-
             <C.Container>
-
-                {/* <h3>Perfis</h3> */}
-
                 <C.CardContainer>
-                    <C.Imagem src={profile.photo} alt={profile.photo_alt} />
-                    <p>{profile.name}</p>
-                    <p>{profile.age}</p>
-                    <p>{profile.bio}</p>
-
                     <div>
-                        <button onClick={() => ChoosePerson()}>Like</button>
-                        <button onClick={() => GetProfileToChoose()}>Dislike</button>
+                        <Header
+                            goToMatches={props.goToMatches}
+                            goToPerfis={props.goToPerfis} 
+                          
+                        />
+ 
+                        <Button onClick={() => ClearPerfis()} leftIcon={<GrPowerReset />} variant='solid' size='sm'></Button>
                     </div>
+
+                    <C.Imagem src={profile.photo} alt={profile.photo_alt} />
+
+                    <C.Dados>
+                        <C.Nome>{profile.name} </C.Nome>
+                        <C.Idade> {profile.age}</C.Idade>
+                    </C.Dados>
+                    <C.Bio>{profile.bio}</C.Bio>
+                    { console.log(props.goToMatches)}
+
+                    <C.Botoes>
+
+                        <Button onClick={() => ChoosePerson()} leftIcon={<FcLike />} variant='solid' size='lg'>Like</Button>
+                        {/* <button onClick={() => ChoosePerson()}>Like</button> */}
+                        <Button onClick={() => GetProfileToChoose()} leftIcon={<AiOutlineClose />} variant='solid' size='lg'>Dislike</Button>
+                        {/* <button onClick={() => GetProfileToChoose()}>Dislike</button> */}
+
+                    </C.Botoes>
 
                 </C.CardContainer>
 
-
-
             </C.Container>
+
+
 
         </C.Body>
     )

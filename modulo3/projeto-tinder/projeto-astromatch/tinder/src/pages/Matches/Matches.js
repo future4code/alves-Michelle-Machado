@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
+import * as C from "./styled"
 
 export const Matches = () => {
 
@@ -7,33 +8,43 @@ export const Matches = () => {
 
   useEffect(() => {
     getMatchs()
-}, [])
+  }, [])
 
   const getMatchs = () => {
-    axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/matches`)
-    .then((res) => {
-      setMatchProfile( res.data.matches)
-      // console.log(myMatches)
-      // console.log(res.data.matches)
+    axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/michelle-mach-alves/matches`)
+      .then((res) => {
+        setMatchProfile(res.data.matches)
+        // console.log(myMatches)
+        // console.log(res.data.matches)
 
-  })
-  .catch((err) => {
-      console.log(err)
+      })
+      .catch((err) => {
+        console.log(err)
 
-  })}
+      })
+  }
+
 
   const showAllMatches = myMatches.map((matchs) => {
+    
     return (<div key={matchs.id}>
-      
-      <p>{matchs.photo}</p>
-      <p>{matchs.name}</p>
-      <p>{matchs.age}</p>
+      <C.Body>
+        <C.Container>
+          <C.Imagem src={matchs.photo} alt={matchs.photo_alt} /> 
+          <C.Dados>
+          <h4>{matchs.name}</h4> 
+          <p> | {matchs.age}</p>
+          </C.Dados>
+        </C.Container>
+      </C.Body>
 
     </div>)
   })
 
   return (
-    <div></div>
-    // <div>{showAllMatches}</div>
+
+    <div>
+      {showAllMatches}
+      </div>
   )
 }
