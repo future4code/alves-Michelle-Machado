@@ -1,25 +1,29 @@
 import { useState, React } from 'react';
 import './App.css';
-import { Header } from './component/Header';
 import { Perfis } from './pages/Perfis/Perfis'
 import { Matches } from './pages/Matches/Matches'
-import { ChakraProvider } from '@chakra-ui/react'
-
+import {Messages} from './pages/Messages/Messages'
+import { MenuLateral } from './component/MenuLateral/MenuLateral'
 
 function App() {
 
   const [actualPage, changePage] = useState("perfis")
-
+  
+  
 
   const searchPage = () => {
     switch (actualPage) {
       case "perfis":
-        return <Perfis  goToMatches={goToMatches}
-        goToPerfis={goToPerfis}/>
+        return <Perfis 
+          goToMatches={goToMatches}
+          goToPerfis={goToPerfis} />
 
       case "matches":
         return <Matches
           goToPerfis={goToPerfis} />
+      
+      case "messages":
+        return <Messages />
 
       default:
         return "Pagina não encontrada"
@@ -34,24 +38,27 @@ function App() {
     changePage("matches")
   }
 
+  const goToMessages = () => {
+    changePage("messages")
+  }
+
+
   return (
-    <ChakraProvider>
 
-      {/* <Header
-        goToMatches={goToMatches}
-        goToPerfis={goToPerfis} 
-      /> */}
+    <body>
 
-      {/* <MenuLateral></MenuLateral> */}
+     
 
-      <div>
+      <MenuLateral
+      goToMatches={goToMatches}
+      goToPerfis={goToPerfis}
+      goToMessages={goToMessages}
+      />
+      
+      {searchPage()}
+      
+    </body>
 
-        {searchPage()}
-
-      </div>
-
-
-    </ChakraProvider>
   );
 }
 

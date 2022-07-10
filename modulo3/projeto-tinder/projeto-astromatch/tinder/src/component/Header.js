@@ -22,9 +22,12 @@ export const Header = (props) => {
     }
   }
 
+
   return (
     <div>
         <h1>Tinder</h1>
+
+        <button onClick={() => (props.goToMenuLateral())}>Mudar de Menu </button>
 
         <button onClick={() => changeButton(changePage())} > {valueButton === 0 ? ("Ir para matches") : "Ir para perfis"}
         </button >

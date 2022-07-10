@@ -1,6 +1,29 @@
 * {
 
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  font-smooth: always;
+  
+}
+
+
+body {
+  display: flex;
+  background-color: #EBEDF0;
+  
+};
+
+button {
+  cursor: pointer;
+};
+
+:root {
+
+  --background: #EBEDF0,
+  --firtColorPink: #68164f,
+  --secondColorMiddle: #581668,
+  --thirdColorPurple: #2f1668,
+
 }

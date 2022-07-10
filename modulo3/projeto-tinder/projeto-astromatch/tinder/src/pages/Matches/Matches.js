@@ -32,12 +32,11 @@ export const Matches = () => {
         <C.Container>
           <C.Imagem src={matchs.photo} alt={matchs.photo_alt} /> 
           <C.Dados>
-          <h4>{matchs.name}</h4> 
+          <C.NomeMatch>{matchs.name.toUpperCase()}</C.NomeMatch> 
           <p> | {matchs.age}</p>
           </C.Dados>
         </C.Container>
       </C.Body>
-
     </div>)
   })
 

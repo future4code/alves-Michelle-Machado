@@ -1,23 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import * as C from "./styled"
+import Like from '../../assets/like.png'
+import Dislike from '../../assets/x.png'
+// import { Wobble } from 'animate-css-styled-components';
 import axios from 'axios'
-import { Header } from '../../component/Header'
-import { Button } from '@chakra-ui/react'
-import { FcLike } from 'react-icons/fc'
-import { AiOutlineClose } from 'react-icons/ai'
-import { GrPowerReset } from 'react-icons/gr'
-import {
-    AlertDialog,
-    AlertDialogBody,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogContent,
-    AlertDialogOverlay,
-} from '@chakra-ui/react'
+
+
 
 export const Perfis = (props) => {
 
     const [profile, setProfile] = useState([])
+    const [animation, setAnimation] = useState("")
 
     useEffect(() => {
         GetProfileToChoose()
@@ -28,7 +21,7 @@ export const Perfis = (props) => {
         axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/michelle-mach-alves/person`)
             .then((res) => {
                 if (profile === null) {
-                    <Button onClick={() => ClearPerfis()} leftIcon={<GrPowerReset />} variant='solid' size='sm'></Button>
+                    { <button onClick={() => ClearPerfis()} > reset</button> }
                 }
                 setProfile(res.data.profile)
                 console.log(profile)
@@ -78,34 +71,25 @@ export const Perfis = (props) => {
     return (
 
         <C.Body>
-            <C.Container>
-                <C.CardContainer>
-                    <div>
-                        <Header
-                            goToMatches={props.goToMatches}
-                            goToPerfis={props.goToPerfis} 
-                          
-                        />
- 
-                        <Button onClick={() => ClearPerfis()} leftIcon={<GrPowerReset />} variant='solid' size='sm'></Button>
-                    </div>
 
-                    <C.Imagem src={profile.photo} alt={profile.photo_alt} />
+            <C.Container animation={animation}>
+
+                <C.Imagem src={profile.photo} alt={profile.photo_alt} />
+
+                <C.CardContainer>
 
                     <C.Dados>
                         <C.Nome>{profile.name} </C.Nome>
                         <C.Idade> {profile.age}</C.Idade>
+
                     </C.Dados>
+
                     <C.Bio>{profile.bio}</C.Bio>
-                    { console.log(props.goToMatches)}
 
                     <C.Botoes>
-
-                        <Button onClick={() => ChoosePerson()} leftIcon={<FcLike />} variant='solid' size='lg'>Like</Button>
-                        {/* <button onClick={() => ChoosePerson()}>Like</button> */}
-                        <Button onClick={() => GetProfileToChoose()} leftIcon={<AiOutlineClose />} variant='solid' size='lg'>Dislike</Button>
-                        {/* <button onClick={() => GetProfileToChoose()}>Dislike</button> */}
-
+                        <C.BotaoImgem animation={animation} src={Like} onClick={() => (setAnimation("direita"), ChoosePerson())}></C.BotaoImgem>
+                        <C.BotaoImgem animation={animation} src={Dislike} onClick={() => (setAnimation("esquerda"), GetProfileToChoose())}></C.BotaoImgem>
+                        {/* <button onClick={() => ClearPerfis()} > RESET</button> */}
                     </C.Botoes>
 
                 </C.CardContainer>
@@ -113,7 +97,7 @@ export const Perfis = (props) => {
             </C.Container>
 
 
-
         </C.Body>
+
     )
 }
