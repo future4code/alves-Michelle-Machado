@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Body = styled.div`
-    width: 72vw;
+    width: 67vw;
     height: 100vh; 
     display:flex;
     justify-content:center;
@@ -15,8 +15,8 @@ export const Container = styled.section`
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    width: 500px;
-    height: 630px;
+    width: 450px;
+    height: 570px;
     transtion: 5s linear;
     box-shadow: 10px 20px 35px #5b5b5b;
 
@@ -53,15 +53,15 @@ export const Container = styled.section`
 `;
 
 export const Imagem = styled.img`
-    width:500px;
-    height: 460px;
+    width:450px;
+    height: 400px;
     justify-content:flex-start;
     object-fit:cover;
 `;
 
 export const CardContainer = styled.div`
     display:flex;
-    width:500px;
+    width:450px;
     flex-direction:column;
     justify-content:center;
     align-items:center;

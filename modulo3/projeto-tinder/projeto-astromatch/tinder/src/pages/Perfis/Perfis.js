@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import * as C from "./styled"
 import Like from '../../assets/like.png'
 import Dislike from '../../assets/x.png'
-// import { Wobble } from 'animate-css-styled-components';
 import axios from 'axios'
 
 
@@ -21,16 +20,12 @@ export const Perfis = (props) => {
         axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/michelle-mach-alves/person`)
             .then((res) => {
                 if (profile === null) {
-                    { <button onClick={() => ClearPerfis()} > reset</button> }
+                    alert("Sua lista de perfis está vazia. Clique em resetar para recomeçar")
+                    { <button onClick={() => ClearPerfis()}>Reset</button> }
                 }
                 setProfile(res.data.profile)
-                console.log(profile)
-
             })
-            .catch((err) => {
-                console.log(err)
 
-            })
     }
 
     const ChoosePerson = () => {
@@ -41,19 +36,7 @@ export const Perfis = (props) => {
 
         axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/michelle-mach-alves/choose-person`, newMatch)
             .then((res) => {
-                if (res.data.isMatch === true) {
-                    alert("It´s a Match")
-                    GetProfileToChoose()
-                } else {
-                    console.log("Não deu Match")
-                    GetProfileToChoose()
-                }
-
-
-                console.log(res)
-            })
-            .catch((err) => {
-                console.log(err)
+                GetProfileToChoose()
             })
     }
 
@@ -61,11 +44,8 @@ export const Perfis = (props) => {
         axios.put(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/michelle-mach-alves/clear`)
             .then((res) => {
                 GetProfileToChoose(res)
-                console.log(res)
             })
-            .catch((err) => {
-                console.log(err)
-            })
+
     }
 
     return (

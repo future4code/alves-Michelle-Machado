@@ -8,8 +8,6 @@ import { MenuLateral } from './component/MenuLateral/MenuLateral'
 function App() {
 
   const [actualPage, changePage] = useState("perfis")
-  
-  
 
   const searchPage = () => {
     switch (actualPage) {
@@ -41,6 +39,7 @@ function App() {
   const goToMessages = () => {
     changePage("messages")
   }
+
 
 
   return (

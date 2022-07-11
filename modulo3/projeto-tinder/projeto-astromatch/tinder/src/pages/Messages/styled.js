@@ -43,6 +43,24 @@ export const SimboloEnviar = styled.div `
     cursor:pointer}
 }
 
+`;
+
+export const Balao = styled.li`
+    list-style:none;
+    max-width:300px;
+    color:white;
+    background-color: #2f1668;
+    margin:15px;
+    padding:15px;
+    border-top-right-radius:20px;
+    border-top-left-radius:20px;
+    border-bottom-right-radius:20px;
+
+`
+
+export const Mensagem = styled.p`
+    font-size:24px;
+
 `
 
 
