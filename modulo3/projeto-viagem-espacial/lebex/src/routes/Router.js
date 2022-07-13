@@ -3,7 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {HomePage} from '../page/HomePage/HomePage'
 import {AboutPage} from '../page/AboutPage/AboutPage'
 import { ErrorPage } from '../page/ErrorPage/ErrorPage';
+import {Login} from '../page/Login/Login'
 import {Menu} from '../component/menu/Menu'
+import { CreateNewTrip } from '../page/CreateNewTrip/CreateNewTrip';
 
 export const Router = () => {
   return (
@@ -20,6 +22,8 @@ export const Router = () => {
 
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
+          <Route path="login" element={<Login />} />
+          <Route path="newTrip" element={<CreateNewTrip />} />
           <Route path="*" element={<ErrorPage />} />
 
           {/* Route: Deve estar dentro de Routes. Componente resposavel por definir uma rota. Recebe uma 

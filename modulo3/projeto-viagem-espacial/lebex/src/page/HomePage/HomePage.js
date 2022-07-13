@@ -1,24 +1,42 @@
 import React from 'react'
-// import {useNavigate} from 'react-router-dom'
 import * as C from './styled'
+// import Slider from "react-slick";
+// import "~slick-carousel/slick/slick.css"; 
+// import "~slick-carousel/slick/slick-theme.css";
 import Foto from '../../assets/foguete.webp'
+import Marte from '../../assets/planeta-marte.webp'
+import Venus from '../../assets/planeta-venus.webp'
+import Plutao from '../../assets/planeta-plutao.webp'
+import Saturno from '../../assets/planeta-saturno.webp'
 
 export const HomePage = () => {
-    // const navigate = useNavigate()
 
-    // const goToAboutPage = () => {
-    //     navigate("/about")
-    // }
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
   return (
     <div>
-        <C.Banner src={Foto} />
+      <C.Banner src={Foto} />
 
-        {/* <div>Home</div> */}
+      <C.Slider {...settings}>
 
-      
-        {/* <p>HomePage</p> */}
+        <C.Planets src={Marte} />
 
-        {/* <button onClick={goToAboutPage}>About Page</button> */}
+        <C.Planets src={Venus} />
+
+        <C.Planets src={Plutao} />
+
+        <C.Planets src={Saturno} />
+
+      </C.Slider>
+
+    <h3>ÚLTIMAS VIAGENS</h3>
+
 
     </div>
   )

@@ -14,6 +14,10 @@ export const Menu = () => {
         navigate("/about")
     }
 
+    const goToLogin = () => {
+        navigate("/login")
+    }
+
   return (
     <div>
         <C.Navi>
@@ -37,7 +41,7 @@ export const Menu = () => {
                 Pacotes
             </C.Categoria>
 
-            <C.Cadastrar>
+            <C.Cadastrar onClick={goToLogin}>
                 Cadastrar Viagem
             </C.Cadastrar>
         </C.Navi>
