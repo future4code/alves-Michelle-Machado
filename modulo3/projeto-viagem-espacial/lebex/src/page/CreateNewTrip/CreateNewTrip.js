@@ -1,13 +1,10 @@
 import React, { useState,useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import axios from 'axios'
 
 const useProtectedPage = () => {
 
-    const[id, setId] = useState("")
-
     const  navigate = useNavigate()
-    // const params = useParams()
 
     useEffect(() => {
         const token = localStorage.getItem('token')
@@ -20,16 +17,16 @@ const useProtectedPage = () => {
 }
 
 export const CreateNewTrip = () => {
-
+    const navigate = useNavigate()
     useProtectedPage()
 
     const [nomeViagem, setNomeViagem] = useState("")
     const [description, setTextArea] = useState("")
-    const [date, setDate] = useState()
-    const [planet, setPlanet] = useState()
+    const [date, setDate] = useState("")
+    const [planet, setPlanet] = useState("")
     const [duration, setDuration] = useState(Number(""))
 
-    const [trip, setTrip] = useState({})
+    const [trip, setTrip] = useState([])
 
     const onChangeNome = (e) => {
         setNomeViagem(e.target.value)
@@ -66,9 +63,10 @@ export const CreateNewTrip = () => {
             }
         })
         .then((res) => {
-            setTrip( newTrip)
-            
-            console.log(res.data)
+            setTrip( res.data)
+            console.log("trip criada")
+            navigate(-1)
+    
         })
         .catch((err) => {
             console.log(err)
@@ -99,10 +97,8 @@ export const CreateNewTrip = () => {
                 value={description}/>
 
             <form>
-                <label for="data-ida">Data:</label>
-                <input onChange={onChangeData} type="date" value={date} id="data-prazo" name='data-prazo'></input>
-
-
+                <label htmlFor="data">Data:</label>
+                <input onChange={onChangeData} type="date" value={date} id="data" name='data'></input>
             </form>
 
             <select onChange={onChangePlanet}>
@@ -119,6 +115,8 @@ export const CreateNewTrip = () => {
                 <option value="mercurio">Mercúrio</option>
 
             </select>
+
+          
 
             <button type='submit' onClick={CreateTrip}>cadastrar</button>
 

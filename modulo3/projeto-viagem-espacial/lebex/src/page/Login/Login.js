@@ -27,7 +27,7 @@ export const Login = () => {
         .then((res) =>{
             console.log("Foi um sucesso", res.data)
             localStorage.setItem('token', res.data.token)
-            navigate("/newTrip")
+            navigate("/admin")
         })
         .catch((err) => {
             console.log("Deu ruim", err.response)

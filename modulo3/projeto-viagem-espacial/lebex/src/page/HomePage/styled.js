@@ -9,7 +9,7 @@ export const Banner = styled.img`
     object-fit:cover;
 `;
 
-export const Slider = styled.section`
+export const Slider = styled.section `
     position:relative;
     top:-60px;
     display:flex;
@@ -17,13 +17,30 @@ export const Slider = styled.section`
     justify-content:center;
 `;
 
-export const Planets = styled.img`
+export const Planets = styled.img `
     width:20vw;
     height: 10vw;
     border-radius:30px;
     margin-left:20px;
     object-fit:cover;
     
+`;
+
+export const Container = styled.div`
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+`;
+
+export const CardTrip = styled.div`
+    display:inline;
+    width: 200px;
+    height: 400px;
+    border: 1px solid;
+    margin-left:15px;
+    margin-bottom:15px;
+    /* margin-right:15px; */
+
 `;
 
 
