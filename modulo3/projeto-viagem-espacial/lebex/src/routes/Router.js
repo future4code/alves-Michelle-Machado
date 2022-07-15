@@ -5,7 +5,6 @@ import { AboutPage } from '../page/AboutPage/AboutPage'
 import { AdminPage } from '../page/AdminPage/AdminPage'
 import { ErrorPage } from '../page/ErrorPage/ErrorPage';
 import { Login } from '../page/Login/Login'
-import { Menu } from '../component/menu/Menu'
 import { CreateNewTrip } from '../page/CreateNewTrip/CreateNewTrip';
 import { TripDetail } from "../page/TripDetail/TripDetail"
 
@@ -16,7 +15,7 @@ export const Router = () => {
       <BrowserRouter>
         {/* BrowserRouter: Ele que vai dar o plano de fundo para todos os componentes. Ele abriga todos os 
         outros componentes. Ele é o componente pai*/}
-        <Menu />
+        
 
         <Routes>
           {/* Routes: O componente responsavel por renderizar uma rota por vez. Todas as rotas ficam dentro 

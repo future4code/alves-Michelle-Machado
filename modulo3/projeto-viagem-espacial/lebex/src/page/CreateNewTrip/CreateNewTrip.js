@@ -1,15 +1,17 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
+import * as C from './styled'
+import Galaxy from '../../assets/galaxy.jpg'
 import axios from 'axios'
 
 const useProtectedPage = () => {
 
-    const  navigate = useNavigate()
+    const navigate = useNavigate()
 
     useEffect(() => {
         const token = localStorage.getItem('token')
 
-        if(token ===null) {
+        if (token === null) {
             console.log("Não está logado")
             navigate("/login")
         }
@@ -24,7 +26,7 @@ export const CreateNewTrip = () => {
     const [description, setTextArea] = useState("")
     const [date, setDate] = useState("")
     const [planet, setPlanet] = useState("")
-    const [duration, setDuration] = useState(Number(""))
+    const [duration, setDuration] = useState("")
 
     const [trip, setTrip] = useState([])
 
@@ -62,72 +64,76 @@ export const CreateNewTrip = () => {
                 auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im93T2g5ZWo2bW50akZqNUNRMVB4IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1ODk1NjI5MDh9.aB4dNbTCkToXB7pdzEa-tuMa-QbRQDUd93eva4-cec0"
             }
         })
-        .then((res) => {
-            setTrip( res.data)
-            console.log("trip criada")
-            navigate(-1)
-    
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+            .then((res) => {
+                setTrip(res.data)
+                console.log("trip criada")
+                navigate(-1)
+
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
 
 
     return (
-        <div>
+        <C.Container>
 
-            <h3>Cadastrar Viagem</h3>
+            <C.ContainerEsquerda>
 
-            <input
-                placeholder="Nome da Viagem"
-                onChange={onChangeNome}
-                value={nomeViagem} />
+                <C.Titulo>Cadastrar Viagem</C.Titulo>
 
-            <input
-                placeholder="Duração"
-                onChange={onChangeDuration}
-                value={duration} />
+                <C.Input
+                    placeholder="Nome da Viagem"
+                    onChange={onChangeNome}
+                    value={nomeViagem} />
 
-            <textarea
-                onChange={onChangeTextArea}
-                placeholder={"Descrição"}
-                rows="4"
-                value={description}/>
+                <C.Input
+                    placeholder="Duração"
+                    onChange={onChangeDuration}
+                    value={duration} />
 
-            <form>
-                <label htmlFor="data">Data:</label>
-                <input onChange={onChangeData} type="date" value={date} id="data" name='data'></input>
-            </form>
+                <C.TextArea
+                    onChange={onChangeTextArea}
+                    placeholder="Descrição"
+                    value={description} />
 
-            <select onChange={onChangePlanet}>
+                <C.ContainerInfo>
 
-                <option value="select">Select</option>
-                <option value="plutao">Plutão</option>
-                <option value="netuno">Netuno</option>
-                <option value="urano">Urano</option>
-                <option value="saturno">Saturno</option>
-                <option value="marte">Marte</option>
-                <option value="jupter">Jupter</option>
-                <option value="terra">Terra</option>
-                <option value="venus">Venus</option>
-                <option value="mercurio">Mercúrio</option>
+                    <C.Data>
+                        <label htmlFor="data">Data:</label>
+                        <input onChange={onChangeData} type="date" value={date} id="data" name='data'></input>
+                    </C.Data>
 
-            </select>
+                    <C.SelectPlanets onChange={onChangePlanet}>
 
-          
+                        <option value="select">Select</option>
+                        <option value="Plutão">Plutão</option>
+                        <option value="Netuno">Netuno</option>
+                        <option value="Urano">Urano</option>
+                        <option value="Saturno">Saturno</option>
+                        <option value="Marte">Marte</option>
+                        <option value="Jupter">Jupter</option>
+                        <option value="Terra">Terra</option>
+                        <option value="Venus">Venus</option>
+                        <option value="Mercúrio">Mercúrio</option>
 
-            <button type='submit' onClick={CreateTrip}>cadastrar</button>
+                    </C.SelectPlanets>
 
-            
+                </C.ContainerInfo>
 
-          
+                <C.Button type='submit' onClick={CreateTrip}>cadastrar</C.Button>
 
+            </C.ContainerEsquerda>
 
+            <C.ContainerDireita>
 
+                <C.Imagem src={Galaxy} />
 
-        </div>
+            </C.ContainerDireita>
+
+        </C.Container>
     )
 }
 

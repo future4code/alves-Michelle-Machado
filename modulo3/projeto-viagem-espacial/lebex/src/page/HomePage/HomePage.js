@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import * as C from './styled'
+import { Menu } from '../../component/menu/Menu'
 import Foto from '../../assets/foguete.webp'
 import Marte from '../../assets/planeta-marte.webp'
 import Venus from '../../assets/planeta-venus.webp'
@@ -34,6 +35,7 @@ export const HomePage = () => {
 
   return (
     <div>
+      <Menu />
       <C.Banner src={Foto} />
 
       <C.Slider >

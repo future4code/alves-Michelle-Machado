@@ -1,5 +1,7 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"
+import * as C from './styled'
+import Banner from '../../assets/galaxia2.jpg'
 import axios from 'axios'
 
 export const Login = () => {
@@ -20,36 +22,47 @@ export const Login = () => {
 
         const infos = {
             "email": email,
-            "password": password 
+            "password": password
         }
 
         axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/michelle-machado-alves/login`, infos)
-        .then((res) =>{
-            console.log("Foi um sucesso", res.data)
-            localStorage.setItem('token', res.data.token)
-            navigate("/admin")
-        })
-        .catch((err) => {
-            console.log("Deu ruim", err.response)
-        })
+            .then((res) => {
+                console.log("Foi um sucesso", res.data)
+                localStorage.setItem('token', res.data.token)
+                navigate("/admin")
+            })
+            .catch((err) => {
+                console.log("Deu ruim", err.response)
+            })
     }
 
     return (
-        <div>
+        <C.Container>
 
-            <input
-                placeholder="Email"
-                type={"email"}
-                onChange={onChangeEmail} 
-            />
+            <C.ContainerEsquerda>
+                <C.Imagem src={Banner} />
+            </C.ContainerEsquerda>
 
-            <input
-                placeholder="Password"
-                type={"password"}
-                onChange={onChangePassword} 
-            />
+            <C.ContainerDireita>
 
-            <button onClick={Login}>Enviar</button>
-        </div>
+                <C.Titulo>LOGIN</C.Titulo>
+
+                <C.Input
+                    placeholder="Email"
+                    type="email"
+                    onChange={onChangeEmail}
+                    src={true}
+                />
+
+                <C.Input
+                    placeholder="Password"
+                    type="password"
+                    onChange={onChangePassword}
+                />
+
+                <C.Button onClick={Login}>Enviar</C.Button>
+
+            </C.ContainerDireita>
+        </C.Container>
     )
 }
