@@ -4,7 +4,7 @@ import React from 'react'
 const ListRecipesPage = () => {
   return (
     <div>
-      {/* <Button variant="contained" color="primary">Success</Button> */}
+     Lista recipes
     </div>
   )
 }

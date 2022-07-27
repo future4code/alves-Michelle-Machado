@@ -11,7 +11,7 @@ import Header from "../components/header/Header";
 const Router = () => {
     return (
         <BrowserRouter>
-            <Header />
+            {/* <Header /> */}
             <Routes>
                 <Route index element={<ListRecipes />} />
                 <Route path="add-recipes" element={<AddRecipes />} />
