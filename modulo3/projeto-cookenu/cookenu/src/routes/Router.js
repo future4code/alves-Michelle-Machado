@@ -18,7 +18,7 @@ const Router = () => {
                 <Route path="list-detail/:id" element={<ListDetail />} />
                 <Route path="signup" element={<SignUpPage />} />
                 <Route path="login" element={<LoginPage />} />
-                <Route element={<ErrorPage />} />
+                <Route path="*" element={<ErrorPage />} />
             </Routes>
         </BrowserRouter>
     )

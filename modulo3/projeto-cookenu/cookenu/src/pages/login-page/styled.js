@@ -12,7 +12,7 @@ export const Background = styled.section`
 
 export const Formulario = styled.div`
     width: 380px;
-    height: 480px;
+    height: 520px;
     position:relative;
     margin: 6% auto;
     background: #fff;
@@ -61,14 +61,14 @@ export const IconImage = styled.img`
     border-radius: 30px;
 `;
 
-export const ContainerInput = styled.form `
+export const ContainerInput = styled.div `
     display:flexbox;
     position:absolute; 
     left:0px;
 
 `
 
-export const InputGroupLogin = styled.div`
+export const InputGroupLogin = styled.form`
     position:absolute;
     left:433px;
     display: flex;
@@ -79,7 +79,7 @@ export const InputGroupLogin = styled.div`
     transition: .5s;
 `;
 
-export const InputGroupSignUp = styled.div`
+export const InputGroupSignUp = styled.form`
     position:absolute;
     left:10px;
     display: flex;

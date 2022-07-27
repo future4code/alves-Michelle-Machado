@@ -1,40 +1,30 @@
-import * as React from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom'
 import * as C from './styled'
 import Box from '@mui/material/Box';
-import axios from 'axios'
-import { Button } from '@mui/material'
 import TextField from '@mui/material/TextField';
 import facebook from '../../assets/fb.png'
 import google from '../../assets/gp.png'
 import twitter from '../../assets/tw.png'
-import { BASE_URL } from '../../constants/url';
+import useForm from '../../hooks/useForm'
+import { login, signup } from '../../services/user'
+
 
 const LoginPage = () => {
-  const [name, setName] = React.useState('')
-  const [email, setEmail] = React.useState('')
-  const [password, setPassword] = React.useState('')
-  const [login, setLogin] = React.useState('')
+  const [form, onChange, clear] = useForm({ email: "", password: "" })
+  const [formSign, onChangeSign, clearSign] = useForm({ email: "", password: "", name: "" })
+  const navigate = useNavigate()
 
-  const doLogin = () => {
-    const profile = {
-      "email": "machado.profile@gmail.com",
-      "password": "123456"
-  }
-    axios.post(`${BASE_URL}/user/login`, profile)
-    .then((res) => {
-      console.log('Voce entrou no login', res)
-    })
-    .catch ((err) => {
-      console.log("Deu ruim", err)
-    })
+  const onSubmitFormLogin = (e) => {
+    e.preventDefault()
+    console.log(form)
+    login(form, clear, navigate)
   }
 
-  const onChangeEmail = (e) => {
-    setEmail(e.target.value)
-  }
-
-  const onChangePassword = (e) => {
-    setPassword(e.target.value)
+  const onSubmitFormSignUp = (e) => {
+    e.preventDefault()
+    console.log(formSign)
+    signup(formSign, clearSign, navigate)
   }
 
   const x = document.getElementById("login")
@@ -45,8 +35,6 @@ const LoginPage = () => {
     x.style.left = "433px"
     y.style.left = "10px"
     z.style.left = "0"
-
-   
   }
 
   const Login = () => {
@@ -58,7 +46,7 @@ const LoginPage = () => {
   return (
     <C.Background >
       <Box
-        component="form"
+        component="section"
         sx={{
           '& .MuiTextField-root': { m: 1, width: '25ch' },
         }}
@@ -79,47 +67,58 @@ const LoginPage = () => {
             <C.IconImage src={twitter} />
           </C.SocialIcones>
 
-    
+
           <C.ContainerInput>
 
-            <C.InputGroupLogin id='login'>
+            <C.InputGroupLogin onSubmit={onSubmitFormLogin} id={'login'}>
               <TextField
+                name='email'
+                type={'email'}
                 label="User Email"
-                value={email}
-                onChange={onChangeEmail}
+                value={form.email}
+                onChange={onChange}
                 required
               />
 
               <TextField
-                label="Enter Password"
+                name='password'
                 type={'password'}
-                value={password}
-                onChange={onChangePassword}
+                label="Enter Password"
+                value={form.password}
+                onChange={onChange}
                 required
               />
-              <div><C.Checkbox type='checkbox' /><C.span>Remember Password</C.span></div>
-              <C.SubmitButton type='submit' variant="contained" onClick={() => doLogin()}>Login</C.SubmitButton>
+              <div><C.Checkbox type='checkbox' /><C.span>Remember password</C.span></div>
+              <C.SubmitButton type='submit' variant="contained" >Login</C.SubmitButton>
             </C.InputGroupLogin>
 
             {/* -------------------------------------------------------------------------------------- */}
 
-            <C.InputGroupSignUp id='register'>
+            <C.InputGroupSignUp onSubmit={onSubmitFormSignUp} id='register'>
               <TextField
+                name='name'
+                type={'name'}
                 label="User Name"
-                // value={email}
+                value={formSign.name}
+                onChange={onChangeSign}
                 required
               />
 
               <TextField
+                name='email'
+                type={'email'}
                 label="User Email"
-                // value={email}
+                value={formSign.email}
+                onChange={onChangeSign}
                 required
               />
 
               <TextField
-                label="Enter Password"
+                name='password'
                 type={'password'}
-                // value={password}
+                label="Enter Password"
+                value={formSign.password}
+                onChange={onChangeSign}
                 required
               />
               <div><C.Checkbox type='checkbox' /><C.span>I agree to the terms & conditions</C.span></div>

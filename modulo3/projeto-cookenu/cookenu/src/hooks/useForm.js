@@ -6,8 +6,10 @@ const useForm = (initialState) => {
     const handleInputChange = (e) => {
         const {value, name} = e.target
         setForm({...form, [name] : value})
-    }
+        // console.log(e.target.value)
 
+    }
+    
     const clear = () => {
         setForm(initialState)
     }
