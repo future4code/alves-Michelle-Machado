@@ -2,7 +2,7 @@ import axios from 'axios'
 import { BASE_URL } from '../constants/url';
 import { goToListRecipes } from '../routes/coordinator';
 
-export const login = (body, clear, navigate) => {
+export const login = (body, clear, navigate, setRightButtonText) => {
 
     axios.post(`${BASE_URL}/user/login`, body)
     .then((res) => {
@@ -10,14 +10,15 @@ export const login = (body, clear, navigate) => {
       // clear()
       console.log("Usuario está logado")
       goToListRecipes(navigate)
+      setRightButtonText("Logout")
     })
     .catch ((err) => {
       alert('Erro no login')
-      console.log(err)
+      console.log(err.response.data.message)
     })
   }
 
-export const signup = (body, clear, navigate) => {
+export const signup = (body, clear, navigate, setRightButtonText) => {
 
     axios.post(`${BASE_URL}/user/signup`, body)
     .then((res) => {
@@ -25,23 +26,11 @@ export const signup = (body, clear, navigate) => {
       // clear()
       console.log("Usuario criado com sucesso")
       goToListRecipes(navigate)
+      setRightButtonText("Logout")
     })
     .catch ((err) => {
-      alert('Erro no login')
-      console.log(err)
+      alert('Erro no signup')
+      console.log(err.response.data.message)
     })
   }
 
-export const feedRecipes = () => {
-  axios.get(`${BASE_URL}/recipe/feed`, {
-    headers: {
-      Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlhNzBhMTQzLTZhNzEtNDcwMS1iNjkxLWRiOTY2ODZhZGM0NyIsImlhdCI6MTYzMDQyNzAxMywiZXhwIjoxNjMwNTk5ODEzfQ.z10bOSPdLdGdRhwI-eB3uYxDYRxxW726V86bJQigZDk'
-    }
-  })
-  .then((res) => {
-    console.log(res)
-  })
-  .catch((err) => {
-    console.log(err)
-  })
-}

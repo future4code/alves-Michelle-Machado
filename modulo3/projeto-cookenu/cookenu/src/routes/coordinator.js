@@ -1,5 +1,4 @@
 
-
 export const goToLogin = (navigate) => {
     navigate('login')
 }
@@ -12,9 +11,9 @@ export const goToAddRecipes = (navigate) => {
     navigate('add-recipes')
 }
 
-// export const goToDetailRecipes = (navigate) => {
-//     navigate(`list-detail/${id}`)
-// }
+export const goToDetailRecipes = (navigate, id) => {
+    navigate(`list-detail/${id}`)
+}
 
 export const goToSignUp = (navigate) => {
     navigate('signup')

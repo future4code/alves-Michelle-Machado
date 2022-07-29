@@ -8,9 +8,11 @@ import google from '../../assets/gp.png'
 import twitter from '../../assets/tw.png'
 import useForm from '../../hooks/useForm'
 import { login, signup } from '../../services/user'
+// import useUnprotectedPage from '../../hooks/useUnprotectedPage';
 
 
-const LoginPage = () => {
+const LoginPage = ({rightButtonText, setRightButtonText}) => {
+  // useUnprotectedPage()
   const [form, onChange, clear] = useForm({ email: "", password: "" })
   const [formSign, onChangeSign, clearSign] = useForm({ email: "", password: "", name: "" })
   const navigate = useNavigate()
@@ -18,13 +20,13 @@ const LoginPage = () => {
   const onSubmitFormLogin = (e) => {
     e.preventDefault()
     console.log(form)
-    login(form, clear, navigate)
+    login(form, clear, navigate, setRightButtonText )
   }
 
   const onSubmitFormSignUp = (e) => {
     e.preventDefault()
     console.log(formSign)
-    signup(formSign, clearSign, navigate)
+    signup(formSign, clearSign, navigate, setRightButtonText)
   }
 
   const x = document.getElementById("login")
@@ -70,7 +72,7 @@ const LoginPage = () => {
 
           <C.ContainerInput>
 
-            <C.InputGroupLogin onSubmit={onSubmitFormLogin} id={'login'}>
+            <C.InputGroupLogin onSubmit={onSubmitFormLogin} id={'login'} rightButtonText={rightButtonText} setRightButtonText={setRightButtonText} >
               <TextField
                 name='email'
                 type={'email'}
@@ -94,7 +96,7 @@ const LoginPage = () => {
 
             {/* -------------------------------------------------------------------------------------- */}
 
-            <C.InputGroupSignUp onSubmit={onSubmitFormSignUp} id='register'>
+            <C.InputGroupSignUp onSubmit={onSubmitFormSignUp} id='register' rightButtonText={rightButtonText} setRightButtonText={setRightButtonText}>
               <TextField
                 name='name'
                 type={'name'}
