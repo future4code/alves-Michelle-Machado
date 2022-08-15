@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 })
 
 type user = {
-    id: number,
+    id: number | string,
     name: string,
     phone: number,
     email: string | number,
@@ -26,7 +26,7 @@ type post = {
     id: number,
     title: string,
     body: string,
-    userId: number | string,
+    userId: number,
 }
 
 const usuarios: user[] = [
@@ -102,9 +102,20 @@ app.get("/usuarios/posts", (req, res) => {
 })
 
 app.get("/:usuarioId/posts", (req, res) => {
-    const usuarioid = req.params.usuarioId
+    const usuarioId = req.params.usuarioId
     const userPosts = posts.filter((post) => {
-        return post.userId === usuarioid
+        return String(post.userId) === usuarioId
     })
     res.send(userPosts)
+})
+
+// ----------------------------- DESAFIOS ---------------------------------- //
+
+app.delete("/usuarios/:usuarioId", (req, res) => {
+    const usuarioid = req.params.usuarioId
+    const user = usuarios.find((user) => {
+        return user.id === usuarioid
+    })
+    // res.send("Usuario deletado com sucesso")
+    res.end()
 })
