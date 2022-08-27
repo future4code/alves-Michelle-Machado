@@ -1,117 +1,144 @@
-import express, { Express } from "express";
-import knex from "knex";
-import cors from "cors";
-import dotenv from "dotenv";
-import { AddressInfo } from "net";
 
 import { Request, Response } from 'express'
 import app from './app'
 import connection from './connection';
 
+//CreateActor
 
-
-app.post("/actor", async (req: Request,
-    res: Response) => {
+app.post("/actor", async (req: Request, res: Response) => {
     try {
-        await connection.raw(`
-            INSERT INTO Actor(
-                id, 
-                name, 
-                salary,
-                birth_date,
-                gender)
-            VALUES (
-                "${Date.now()}",
-                "${req.body.name}",
-                ${req.body.salary},
-                "${req.body.birthDate}",
-                "${req.body.gender}"
-            )
-        `)
         await connection("Actor")
             .insert({
                 id: Date.now().toString(),
                 name: req.body.name,
                 salary: req.body.salary,
-                birth_date: req.body.birthDate,
+                birth_date: req.body.birth_date,
                 gender: req.body.gender
             })
 
 
-        res.send("O usuario foi inserido");
+        res.status(201).send("O usuario foi inserido");
     } catch (error) {
-        // console.log(error)
-        res
-            .status(500)
-            .send("Um erro inesperado aconteceu")
+        console.log(error)
+        res.status(500).send("Um erro inesperado aconteceu")
     }
 })
+
+// GetAllActors
 
 app.get("/actor", async (req: Request, res: Response) => {
     try {
-        // const [result] = await connection.raw(`
-        //     SELECT * FROM Actor
-        // `)
         const result = await connection("Actor")
-        // .select("id", "name")
 
-        res.send(result)
+        res.status(200).send(result)
     } catch (error) {
-        // console.log(error)
-        res
-            .status(500)
-            .send("Um erro inesperado aconteceu");
+
+        res.status(500).send("Um erro inesperado aconteceu");
     }
 })
 
-app.put("/actor/:id", async (req: Request, res: Response) => {
+// ChangeActorSalary
+
+app.put("/actor", async (req: Request, res: Response) => {
     try {
         await connection("Actor")
             .update({
-                name: req.body.name,
                 salary: req.body.salary,
-                birth_date: req.body.birthDate,
-                gender: req.body.gender
             })
             .where({
-                id: req.params.id
+                id: req.query.id,
+                salary: req.query.salary
             })
 
         res.send("Ator atualizado");
     } catch (error) {
         console.log(error)
-        res
-            .status(500)
-            .send("Um erro inesperado aconteceu")
+        res.status(500).send("Um erro inesperado aconteceu")
     }
 })
 
-const getActorById = async (id: string): Promise<any> => {
-    const result = await connection.raw(`
-      SELECT * FROM Actor WHERE id = '${id}'
-    `)
+// GetActorById
 
-    return result[0][0]
-}
-
-getActorById("001")
-    .then(result => {
-        console.log(result)
-    })
-    .catch(err => {
-        console.log(err)
-    });
-
-
-app.get("/users/:id", async (req: Request, res: Response) => {
+app.get("/actor/:id", async (req: Request, res: Response) => {
     try {
+
         const id = req.params.id
+        const actorId = await connection("Actor").where({ id: id })
+        console.log("entrei")
 
-        console.log(await getActorById(id))
-
-        res.end()
-    } catch (error:any) {
+        res.send(actorId)
+    } catch (error: any) {
         console.log(error.message)
         res.status(500).send("Unexpected error")
     }
 })
+
+// GetActorByName
+
+app.get("/actor/description/:name", async (req: Request, res: Response) => {
+    try {
+        const name = req.params.name
+        const actorName = await connection("Actor").where("name", name)
+
+        console.log(actorName)
+
+        res.status(200).send(actorName)
+    } catch (error: any) {
+        console.log(error.message)
+        res.status(500).send("Unexpected error")
+    }
+})
+
+// CountActor
+
+app.get("/countactor", async (req: Request, res: Response) => {
+    try {
+        const gender = req.query.gender
+        let result = undefined
+
+        if (gender === "female") {
+            result = await connection("Actor").count().where({ gender: gender })
+
+        }
+
+        else if (gender === "male") {
+            result = await connection("Actor").count().where({ gender: gender })
+
+        }
+
+        res.status(200).send(result)
+    } catch (error: any) {
+        console.log(error)
+        res.status(500).send("Unexpected error")
+    }
+})
+
+
+// DeleteActor
+
+app.delete("/actor/:id", async (req: Request, res: Response) => {
+    try {
+        const id = req.params.id
+
+        await connection("Actor").delete().where({ id: id })
+
+        res.status(200).send("Ator deletado")
+    } catch (error: any) {
+        console.log(error)
+        res.status(500).send("Unexpected error")
+    }
+})
+
+// MediaSalarial
+// app.get("/ator/salary"), async (req: Request, res: Response) => {
+
+//     const gender = req.query.gender
+
+//     const avgSalary = await connection("Actor").avg().where({ gender: gender });
+
+//     res.status(200).send(avgSalary)
+
+
+// }
+
+
