@@ -111,11 +111,13 @@ app.get("/:usuarioId/posts", (req, res) => {
 
 // ----------------------------- DESAFIOS ---------------------------------- //
 
-// app.delete("/:usuarioId", (req, res) => {
-//     const usuarioid = req.params.usuarioId
-//     const user = usuarios.find((user) => {
-//         return user.id === usuarioid
-//     })
-//     // res.send("Usuario deletado com sucesso")
-//     res.end()
-// })
+
+app.delete("/usuarios/:usuarioId", (req, res) => {
+    const usuarioid = req.params.usuarioId
+    const user = usuarios.find((user) => {
+        return user.id === usuarioid
+    })
+    // res.send("Usuario deletado com sucesso")
+    res.end()
+})
+

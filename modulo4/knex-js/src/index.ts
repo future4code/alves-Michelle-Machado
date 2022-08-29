@@ -105,6 +105,7 @@ app.get("/countactor", async (req: Request, res: Response) => {
             result = await connection("Actor").count().where({ gender: gender })
 
         }
+
         res.status(200).send(result)
     } catch (error: any) {
         console.log(error)
