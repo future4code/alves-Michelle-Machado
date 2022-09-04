@@ -1,0 +1,42 @@
+POST  http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "Carlos",
+    "email": "carlos@gmail.com",
+    "password": "123456"
+}
+
+###
+
+GET http://localhost:3003/users
+
+###
+
+POST  http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "Varinho do Harry Potter",
+    "price": 87.50,
+    "image_url": "https://images-americanas.b2w.io/produtos/01/00/oferta/15865/3/15865335_1GG.jpg"
+
+}
+
+###
+
+GET http://localhost:3003/products
+
+###
+POST http://localhost:3003/purchases 
+Content-Type: application/json
+
+{
+    "user_id":"1662307127040",
+    "product_id":"1662308551901",
+    "quantity": 2
+}
+
+###
+
+GET http://localhost:3003/users/:user_id/purchases
